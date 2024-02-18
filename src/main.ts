@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
-import 'zone.js';
-import { MapComponent } from './app/map/map.component';
-import { provideRouter, Route, RouterOutlet } from '@angular/router';
-@Component({
+
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { MapModuleModule } from './app/map-module.module';
+
+platformBrowserDynamic().bootstrapModule(MapModuleModule)
+  .catch(err => console.error(err));
+/*@Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
@@ -16,7 +17,7 @@ export class App {}
 export const routes: Route[] = [
   {
     path: '',
-    component: MapComponent,
+    component: LayoutComponent,
   },
   {
     path: '**',
@@ -26,4 +27,4 @@ export const routes: Route[] = [
 
 bootstrapApplication(App, {
   providers: [provideRouter(routes)],
-});
+});*/
